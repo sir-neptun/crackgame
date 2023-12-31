@@ -19,7 +19,7 @@ things_that_kill_group = pygame.sprite.Group()
 time_since_last_obstacle = 1000
 score = 0
 text = font.render(str(score), False, (0, 0, 0))
-SPEED = 230
+SPEED = 250
 class background_picture():
     def __init__(self):
         self.image,self.rect = pygame.image.load(current_directory + '\\assets\graphics\\background_picture.png'), pygame.Surface.get_rect(pygame.image.load(current_directory + '\\assets\graphics\\background_picture.png'))
@@ -113,12 +113,9 @@ def generate_obstacles(x,y):
         if rand1 == 1:
             things_that_kill_group.add(spike(x-64-16,y+32,"left"))
             things_that_kill_group.add(spike(x-64-16,y+64,"left"))
-        elif rand1 == 2:
+        else:
             things_that_kill_group.add(spike(x+32,y+32,"down"))
             things_that_kill_group.add(spike(x+64,y+32,"down"))
-        else:
-            things_that_kill_group.add(spike(x+90,y-32,"right"))
-            things_that_kill_group.add(spike(x+90,y,"right"))
     elif rand == 2:
         brick_group.add(brick(x-32,y-32))
         brick_group.add(brick(x+32,y-32))
